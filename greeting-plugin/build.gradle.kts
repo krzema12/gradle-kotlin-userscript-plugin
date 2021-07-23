@@ -20,7 +20,7 @@ dependencies {
 gradlePlugin {
     plugins {
         register("kotlin-userscript-plugin") {
-            id = "kotlin-userscript"
+            id = "it.krzeminski.kotlin-userscript"
             displayName = "Kotlin Userscript"
             description = "Allows creating browser userscripts in Kotlin/JS."
             implementationClass = "it.krzeminski.gradleplugins.kotlinuserscript.KotlinUserscriptPlugin"

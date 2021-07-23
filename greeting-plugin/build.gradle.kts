@@ -1,6 +1,5 @@
 plugins {
-    // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
-    `java-gradle-plugin`
+    `kotlin-dsl`
 }
 
 repositories {
@@ -14,25 +13,10 @@ dependencies {
 }
 
 gradlePlugin {
-    // Define the plugin
-    val greeting by plugins.creating {
-        id = "com.example.plugin.greeting"
-        implementationClass = "com.example.plugin.GreetingPlugin"
+    plugins {
+        register("kotlin-userscript-plugin") {
+            id = "kotlin-userscript"
+            implementationClass = "it.krzeminski.gradleplugins.kotlinuserscript.KotlinUserscriptPlugin"
+        }
     }
-}
-
-// Add a source set and a task for a functional test suite
-val functionalTest by sourceSets.creating
-gradlePlugin.testSourceSets(functionalTest)
-
-configurations[functionalTest.implementationConfigurationName].extendsFrom(configurations.testImplementation.get())
-
-val functionalTestTask = tasks.register<Test>("functionalTest") {
-    testClassesDirs = functionalTest.output.classesDirs
-    classpath = configurations[functionalTest.runtimeClasspathConfigurationName] + functionalTest.output
-}
-
-tasks.check {
-    // Run the functional tests as part of `check`
-    dependsOn(functionalTestTask)
 }

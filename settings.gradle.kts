@@ -1,3 +1,3 @@
 rootProject.name = "gradle-kotlin-userscript-plugin"
 
-include("greeting-plugin")
+include("kotlin-userscript")

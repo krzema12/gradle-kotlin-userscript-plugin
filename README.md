@@ -5,6 +5,8 @@ The goal of this Gradle plugin is to be able to create
 
 ## Usage
 
+See [an example repo](https://github.com/krzema12/kotlin-userscript-template) or follow the steps below.
+
 In your `build.gradle.kts`, add this plugin:
 
 ```

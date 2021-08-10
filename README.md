@@ -9,7 +9,7 @@ In your `build.gradle.kts`, add this plugin:
 
 ```
 plugins {
-    id("it.krzeminski.kotlin-userscript")
+    id("it.krzeminski.kotlin-userscript") version "0.1.0"
 }
 ```
 

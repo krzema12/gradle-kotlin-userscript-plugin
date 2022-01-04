@@ -12,6 +12,8 @@ open class KotlinUserscriptPluginExtension {
     var inputFilePath: String? = null
     var outputFilePath: String? = null
     var matchPatterns: List<String> = emptyList()
+    var downloadUrl: String? = null
+    var updateUrl: String? = null
 
     fun match(vararg matchPatterns: String) {
         this.matchPatterns = matchPatterns.toList()
@@ -38,6 +40,8 @@ class KotlinUserscriptPlugin : Plugin<Project> {
                         |${userscriptProperty("version", project.version.toString())}
                         |${(extension.description ?: project.description)?.let { userscriptProperty("description", it) }}
                         |${extension.matchPatterns.map { userscriptProperty("match", it) }.joinToString("\n")}
+                        |${extension.downloadUrl?.let { userscriptProperty("downloadURL", it) }}
+                        |${extension.updateUrl?.let { userscriptProperty("updateURL", it) }}
                         |// ==/UserScript==
                         |
                         |

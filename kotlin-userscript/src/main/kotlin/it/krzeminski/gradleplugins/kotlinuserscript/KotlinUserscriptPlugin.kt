@@ -27,7 +27,7 @@ class KotlinUserscriptPlugin : Plugin<Project> {
             register("generateUserscript") {
                 group = "other"
                 description = "Adds a preamble needed by plugins like Tampermonkey, adds a proper file extension, and other."
-                dependsOn("browserWebpack")
+                dependsOn("browserDistribution")
                 doLast {
                     println("Generating a userscript...")
                     val defaultInputFilePath = "build/distributions/${project.name}.js"
